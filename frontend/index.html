@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Audio Recorder, Uploader & Chatbot</title>
+
+        <!-- Import the Nixie One font, but we will apply it only to the clock -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body>
+        <!-- NAVIGATION BAR -->
+        <nav>
+            <a id="navRecorder" href="#recorderSection">Audio Recorder</a>
+            <a id="navChat" href="#chatSection">Chatbot</a>
+            <div id="connectionIndicator">
+                <button id="themeToggleButton" class="theme-icon">⏾</button>
+                <span id="connectionDot"></span>
+                <span id="connectionText">Disconnected</span>
+                
+            </div>
+
+            
+        </nav>
+
+        <!-- AUDIO RECORDER SECTION -->
+        <section id="recorderSection">
+            <h1>Memory Augmentation for Individuals</h1>
+
+            <!-- Big Timer (Nixie One font only) -->
+            <div class="timer" id="timer">00:00:00</div>
+
+            <!-- Start/Stop Recording Button -->
+            <button class="record-btn" id="recordButton">Start</button>
+
+            <!-- Toggle Container (Options Button) -->
+            <div class="toggle-container">
+                <button class="toggle-btn active" id="mic-btn" aria-pressed="true">Just Mic</button>
+                <button class="toggle-btn" id="screen-recrd-btn" aria-pressed="false">Screen Audio</button>
+            </div>
+
+            <div id="status"></div>
+
+            <!-- Old Start/Stop Buttons (hidden in CSS) -->
+            <button id="recordButtonOld" type="button">Start Recording</button>
+            <button id="stopButtonOld" type="button" disabled>Stop Recording</button>
+
+            <h2>Or Upload an Audio File</h2>
+            <input type="file" id="fileInput" accept="audio/*" hidden />
+            <button id="fileButton" class="custom-file-upload" type="button">Choose File</button>
+            <span id="fileName">No file chosen</span>
+
+            <button id="uploadButton" type="button" disabled>Upload &amp; Transcribe</button>
+            <div id="progressDiv">Upload progress: 0%</div>
+
+            <hr />
+        </section>
+
+        <!-- CHATBOT SECTION WITH 3 PANELS -->
+        <section id="chatSection" class="hidden">
+            <h2>Chat with the M.A.I</h2>
+            <div class="chat-container">
+                <!-- Left Panel: Meeting History -->
+                <div class="chat-left">
+                    <h3>Meetings</h3>
+                    <div id="meetingList"><!-- Dynamically loaded --></div>
+                </div>
+                <!-- Middle Panel: Summary / Transcript -->
+                <div class="chat-middle">
+                    <h3>Summary / Transcript</h3>
+                    <button id="toggleSummaryTranscriptButton" type="button">Show Summary</button>
+                    <pre id="middleContent">Transcript will appear here.</pre>
+                </div>
+                <!-- Right Panel: Chat Window -->
+                <div class="chat-right">
+                    <div id="chatWindow"></div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: auto;">
+                        <label for="chatInput" class="sr-only">Chat Message</label>
+                        <input type="text" id="chatInput" placeholder="Type your message..." />
+                        <button id="sendButton" type="button">Send</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="script.js"></script>
+    </body>
+</html>

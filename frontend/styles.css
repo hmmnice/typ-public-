@@ -1,0 +1,408 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif; 
+}
+
+nav {
+    background-color: #1f1f1f;
+    padding: 1rem;
+    border-bottom: 1px solid #333;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease;
+}
+nav a:hover {
+    background-color: #333333;
+    cursor: pointer;
+}
+
+#connectionIndicator {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+}
+
+#connectionDot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: red;
+    border: 1px solid #333;
+}
+#connectionText {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.hidden {
+    display: none;
+}
+
+#recorderSection {
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+#recorderSection h1,
+#recorderSection h2 {
+    margin-bottom: 1rem;
+}
+#status {
+    margin: 1rem 0;
+    font-weight: bold;
+}
+#progressDiv {
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+.timer {
+    font-size: 12rem; 
+    margin: 1rem 0;
+    color: #fff;
+    font-family: "Nixie One", monospace;
+    text-align: center; 
+}
+
+.record-btn {
+    width: 120px; 
+    height: 50px; 
+    border-radius: 25px; 
+    border: 2px solid #ff0000; 
+    background-color: #000000; 
+    color: #ff0000; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    cursor: pointer; 
+    margin: 1.5rem 0; 
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s; 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.record-btn.stop {
+    background-color: #ff0000; 
+    border-color: #000000; 
+    color: #000000; 
+}
+
+.record-btn:active {
+    transform: scale(0.95); 
+}
+
+.toggle-container {
+    background-color: #333; 
+    padding: 5px; 
+    border-radius: 20px; 
+    margin: 1rem 0; 
+    display: inline-flex; 
+    gap: 5px; 
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.toggle-btn.active {
+    background-color: #666;
+}
+
+.upload-section {
+    margin-top: 2rem;
+}
+.upload-dropdown {
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    margin-right: 10px;
+    
+}
+.upload-btn,
+#sendButton,
+#toggleSummaryTranscriptButton,
+#uploadButton,
+#fileInput,
+#themeToggleButton{
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    
+}
+
+.upload-btn:hover,
+#sendButton:hover,
+#toggleSummaryTranscriptButton:hover
+#custom-file-upload:hover,
+#uploadButton:hover,
+#themeToggleButton:hover,
+#custom-file-upload{
+    background-color: #555;
+}
+
+#recordButtonOld,
+#stopButtonOld {
+    display: none;
+}
+
+#chatSection {
+    padding: 1rem;
+    width: 100%;
+    margin: 0;
+}
+.chat-container {
+    display: flex;
+    gap: 1rem;
+    height: calc(100vh - 150px);
+}
+.chat-left,
+.chat-middle,
+.chat-right {
+    background-color: #1e1e1e;
+    padding: 1rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    overflow-y: auto;
+}
+.chat-left {
+    flex: 1;
+    max-width: 200px;
+}
+.chat-middle {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+.chat-right {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+.chat-message {
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+.chat-message-user {
+    font-weight: bold;
+    color: #4caf50;
+    margin-right: 0.25rem;
+}
+
+.chat-message-bot {
+    font-weight: bold;
+    color: #e53935; 
+    margin-right: 0.25rem;
+}
+
+#chatInput {
+    width: calc(100% - 120px);
+    padding: 0.5rem;
+    border: 1px solid #777; 
+    border-radius: 0.25rem;
+    background-color: #1c1c1c; 
+    color: #ffffff; 
+    outline: none;
+}
+
+#middleContent {
+    flex: 1;
+    margin-top: 1rem;
+    white-space: pre-wrap;
+}
+#meetingList button {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    background-color: #333;
+    border: none;
+    border-radius: 0.25rem;
+    color: #fff;
+    padding: 0.5rem;
+    text-align: left;
+    cursor: pointer;
+}
+#meetingList button:hover {
+    background-color: #444;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 12px 24px; 
+    background-color: #c10101;
+    color: white;
+    border-radius: 50px; 
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s;
+    border: none;
+}
+
+#fileName {
+    color: #ffffff;
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+#uploadButton {
+    background-color: #444;
+    color: white;
+    padding: 12px 24px; 
+    border-radius: 50px; 
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s;
+    margin-left: 10px; 
+}
+
+.upload-section {
+    margin-top: 1.5rem; 
+}
+
+   body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-mode nav {
+    background-color: #f1f1f1;
+}
+
+body.light-mode nav a {
+    color: #000000;
+}
+body.light-mode nav a:hover {
+    background-color: #dddddd;
+}
+
+body.light-mode #connectionText {
+    color: #000000;
+}
+body.light-mode #connectionDot {
+    border: 1px solid #000;
+}
+
+body.light-mode #recorderSection,
+body.light-mode #chatSection {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-mode .chat-left,
+body.light-mode .chat-middle,
+body.light-mode .chat-right {
+    background-color: #f8f8f8;
+    color: #000000;
+    border: 1px solid #ccc;
+}
+
+body.light-mode .toggle-container {
+    background-color: #eee;
+}
+body.light-mode .toggle-btn {
+    color: #000000;
+}
+body.light-mode .toggle-btn.active {
+    background-color: #ddd;
+}
+
+body.light-mode .record-btn {
+    background-color: #ffffff;
+    color: #ff0000; 
+    border-color: #ff0000;
+}
+body.light-mode .record-btn.stop {
+    background-color: #ff0000;
+    color: #000000;
+    border-color: #000000;
+}
+
+body.light-mode #chatInput,
+body.light-mode #meetingList button {
+    background-color: #ddd;
+    color: #000;
+}
+body.light-mode #meetingList button:hover {
+    background-color: #ccc;
+}
+body.light-mode #sendButton,
+body.light-mode #uploadButton,
+body.light-mode .custom-file-upload,
+body.light-mode #themeToggleButton{
+    background-color: #ddd;
+    color: #000;
+}
+body.light-mode #sendButton:hover,
+body.light-mode #uploadButton:hover,
+body.light-mode .custom-file-upload:hover {
+    background-color: #ccc;
+}
+
+.timer {
+    color: #fff; 
+}
+.timer.recording {
+    color: red; 
+}
+
+body.light-mode .timer {
+    color: #000; 
+}
+body.light-mode .timer.recording {
+    color: red;  
+}
+
+.theme-icon {
+    font-size: 1rem; 
+    cursor: pointer;
+    margin-left: 35px; 
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid #aaa;
+  outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
